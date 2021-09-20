@@ -48,13 +48,13 @@ target_link_libraries(${PROJECT_NAME}_core INTERFACE SortFilterProxyModel)
 # Translation files
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM TRUE)
 set(TS_FILES
-        ${CMAKE_SOURCE_DIR}/atomic_defi_design/assets/languages/atomic_defi_en.ts
-        ${CMAKE_SOURCE_DIR}/atomic_defi_design/assets/languages/atomic_defi_fr.ts
-        ${CMAKE_SOURCE_DIR}/atomic_defi_design/assets/languages/atomic_defi_tr.ts
-        ${CMAKE_SOURCE_DIR}/atomic_defi_design/assets/languages/atomic_defi_ru.ts)
-set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_SOURCE_DIR}/atomic_defi_design/assets/languages)
+        ${CMAKE_SOURCE_DIR}/bitcoinz_defi_design/assets/languages/atomic_defi_en.ts
+        ${CMAKE_SOURCE_DIR}/bitcoinz_defi_design/assets/languages/atomic_defi_fr.ts
+        ${CMAKE_SOURCE_DIR}/bitcoinz_defi_design/assets/languages/atomic_defi_tr.ts
+        ${CMAKE_SOURCE_DIR}/bitcoinz_defi_design/assets/languages/atomic_defi_ru.ts)
+set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_SOURCE_DIR}/bitcoinz_defi_design/assets/languages)
 qt5_create_translation(QM_FILES
-        ${PROJECT_SOURCE_DIR}/atomic_defi_design/qml
+        ${PROJECT_SOURCE_DIR}/bitcoinz_defi_design/qml
         ${PROJECT_SOURCE_DIR}/src
         ${TS_FILES}
         OPTIONS -source-language en_US -no-obsolete)
@@ -180,11 +180,11 @@ if (WIN32)
     endif ()
     add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/ci_tools_atomic_dex/windows_misc $<TARGET_FILE_DIR:${PROJECT_NAME}>)
-    message(STATUS "${WINDEPLOYQT_PATH} ${CMAKE_BINARY_DIR}/bin/${PROJECT_NAME}.exe --qmldir ${CMAKE_SOURCE_DIR}/atomic_defi_design/qml")
+            ${CMAKE_SOURCE_DIR}/ci_tools_bitcoinz_dex/windows_misc $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+    message(STATUS "${WINDEPLOYQT_PATH} ${CMAKE_BINARY_DIR}/bin/${PROJECT_NAME}.exe --qmldir ${CMAKE_SOURCE_DIR}/bitcoinz_defi_design/qml")
     add_custom_command(TARGET ${PROJECT_NAME}
             POST_BUILD
-            COMMAND ${WINDEPLOYQT_PATH} ${CMAKE_BINARY_DIR}/bin/${PROJECT_NAME}.exe --qmldir ${CMAKE_SOURCE_DIR}/atomic_defi_design/qml
+            COMMAND ${WINDEPLOYQT_PATH} ${CMAKE_BINARY_DIR}/bin/${PROJECT_NAME}.exe --qmldir ${CMAKE_SOURCE_DIR}/bitcoinz_defi_design/qml
             )
     include(${CMAKE_SOURCE_DIR}/cmake/install/windows/dex_install.cmake)
 

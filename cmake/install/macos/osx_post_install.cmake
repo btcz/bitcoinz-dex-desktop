@@ -7,7 +7,7 @@ if (EXISTS ${PROJECT_ROOT_DIR}/build-Release OR EXISTS ${PROJECT_ROOT_DIR}/build
 endif ()
 
 message(STATUS "PROJECT_ROOT_DIR -> ${PROJECT_ROOT_DIR}")
-set(PROJECT_QML_DIR ${PROJECT_ROOT_DIR}/atomic_defi_design/qml)
+set(PROJECT_QML_DIR ${PROJECT_ROOT_DIR}/bitcoinz_defi_design/qml)
 message(STATUS "PROJECT_QML_DIR -> ${PROJECT_QML_DIR}")
 message(STATUS "bin dir -> ${CMAKE_CURRENT_SOURCE_DIR}/bin")
 set(TARGET_APP_PATH ${PROJECT_ROOT_DIR}/bundled/osx/)
@@ -70,7 +70,7 @@ if (NOT EXISTS ${CMAKE_SOURCE_DIR}/bin/${DEX_PROJECT_NAME}.dmg)
 
     ##-------------------------------------------
     message(STATUS "Packaging the DMG")
-    set(PACKAGER_PATH ${PROJECT_ROOT_DIR}/ci_tools_atomic_dex/dmg-packager/package.sh)
+    set(PACKAGER_PATH ${PROJECT_ROOT_DIR}/ci_tools_bitcoinz_dex/dmg-packager/package.sh)
     if (EXISTS ${PACKAGER_PATH})
         message(STATUS "packager path is -> ${PACKAGER_PATH}")
     else ()
@@ -87,7 +87,7 @@ if (NOT EXISTS ${CMAKE_SOURCE_DIR}/bin/${DEX_PROJECT_NAME}.dmg)
             ECHO_OUTPUT_VARIABLE
             ECHO_ERROR_VARIABLE)
 
-    execute_process(COMMAND ${PROJECT_ROOT_DIR}/cmake/install/macos/macos_notarize.sh --app-specific-password=$ENV{APPLE_ATOMICDEX_PASSWORD} --apple-id=$ENV{APPLE_ID} --primary-bundle-id=com.komodoplatform.atomicdex --target-binary=${CMAKE_SOURCE_DIR}/bin/${DEX_PROJECT_NAME}.dmg
+    execute_process(COMMAND ${PROJECT_ROOT_DIR}/cmake/install/macos/macos_notarize.sh --app-specific-password=$ENV{APPLE_ATOMICDEX_PASSWORD} --apple-id=$ENV{APPLE_ID} --primary-bundle-id=com.btcz.bitcoinz-dex --target-binary=${CMAKE_SOURCE_DIR}/bin/${DEX_PROJECT_NAME}.dmg
             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
             ECHO_OUTPUT_VARIABLE
             ECHO_ERROR_VARIABLE)
@@ -111,24 +111,24 @@ else()
     message(STATUS "${DEX_PROJECT_NAME}.7z already created - skipping")
 endif()
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/bin/${DEX_PROJECT_NAME}.7z DESTINATION ${PROJECT_ROOT_DIR}/ci_tools_atomic_dex/installer/osx/packages/com.komodoplatform.atomicdex/data)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/bin/${DEX_PROJECT_NAME}.7z DESTINATION ${PROJECT_ROOT_DIR}/ci_tools_bitcoinz_dex/installer/osx/packages/com.btcz.bitcoinz-dex/data)
 
 execute_process(COMMAND ${IFW_BINDIR}/binarycreator -c ./config/config.xml -p ./packages/ ${DEX_PROJECT_NAME}_installer -s $ENV{MAC_SIGN_IDENTITY}
-        WORKING_DIRECTORY ${PROJECT_ROOT_DIR}/ci_tools_atomic_dex/installer/osx
+        WORKING_DIRECTORY ${PROJECT_ROOT_DIR}/ci_tools_bitcoinz_dex/installer/osx
         ECHO_OUTPUT_VARIABLE
         ECHO_ERROR_VARIABLE)
 
-execute_process(COMMAND codesign --deep --force -v -s "$ENV{MAC_SIGN_IDENTITY}" -o runtime --timestamp ${PROJECT_ROOT_DIR}/ci_tools_atomic_dex/installer/osx/${DEX_PROJECT_NAME}_installer.app
+execute_process(COMMAND codesign --deep --force -v -s "$ENV{MAC_SIGN_IDENTITY}" -o runtime --timestamp ${PROJECT_ROOT_DIR}/ci_tools_bitcoinz_dex/installer/osx/${DEX_PROJECT_NAME}_installer.app
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         ECHO_OUTPUT_VARIABLE
         ECHO_ERROR_VARIABLE)
 
-execute_process(COMMAND ${PROJECT_ROOT_DIR}/cmake/install/macos/macos_notarize.sh --app-specific-password=$ENV{APPLE_ATOMICDEX_PASSWORD} --apple-id=$ENV{APPLE_ID} --primary-bundle-id=com.komodoplatform.atomicdex --target-binary=${PROJECT_ROOT_DIR}/ci_tools_atomic_dex/installer/osx/${DEX_PROJECT_NAME}_installer.app
+execute_process(COMMAND ${PROJECT_ROOT_DIR}/cmake/install/macos/macos_notarize.sh --app-specific-password=$ENV{APPLE_ATOMICDEX_PASSWORD} --apple-id=$ENV{APPLE_ID} --primary-bundle-id=com.btcz.bitcoinz-dex --target-binary=${PROJECT_ROOT_DIR}/ci_tools_bitcoinz_dex/installer/osx/${DEX_PROJECT_NAME}_installer.app
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         ECHO_OUTPUT_VARIABLE
         ECHO_ERROR_VARIABLE)
 
-file(COPY ${PROJECT_ROOT_DIR}/ci_tools_atomic_dex/installer/osx/${DEX_PROJECT_NAME}_installer.app DESTINATION ${TARGET_APP_PATH})
+file(COPY ${PROJECT_ROOT_DIR}/ci_tools_bitcoinz_dex/installer/osx/${DEX_PROJECT_NAME}_installer.app DESTINATION ${TARGET_APP_PATH})
 
 execute_process(COMMAND ${IFW_BINDIR}/archivegen ${DEX_PROJECT_NAME}_installer.7z ${DEX_PROJECT_NAME}_installer.app
         WORKING_DIRECTORY ${TARGET_APP_PATH}

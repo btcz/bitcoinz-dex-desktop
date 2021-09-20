@@ -203,7 +203,7 @@ export QT_ROOT=~/Qt/5.15.0
 ### Build BitcoinZ DEX Desktop
 Please clone with submodules initialization: `git clone --recurse-submodules https://github.com/btcz/bitcoinz-dex-desktop.git`
 
-Install Install vcpkg from within the `ci_tools_atomic_dex` folder:
+Install Install vcpkg from within the `ci_tools_bitcoinz_dex` folder:
 ```
 cd vcpkg-repo
 # Windows

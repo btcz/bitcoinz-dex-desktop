@@ -3,8 +3,8 @@ include(${CMAKE_CURRENT_LIST_DIR}/../../project.metadata.cmake)
 message("Test configuration: \"${CMAKE_CURRENT_LIST_DIR}\"")
 
 
-set(CMAKE_SOURCE_DIR "F:/atomicDEX-Desktop")
-set(CMAKE_CURRENT_SOURCE_DIR "F:/atomicDEX-Desktop/build")
+set(CMAKE_SOURCE_DIR "F:/bitcoinz-dex-desktop")
+set(CMAKE_CURRENT_SOURCE_DIR "F:/bitcoinz-dex-desktop/build")
 
 
 message("Test configuration: \"${CMAKE_SOURCE_DIR}\"")
@@ -14,7 +14,7 @@ if (EXISTS ${PROJECT_ROOT_DIR}/build-Release)
     message(STATUS "from ci tools, readjusting")
     get_filename_component(PROJECT_ROOT_DIR ${PROJECT_ROOT_DIR} DIRECTORY)
 endif ()
-set(PROJECT_ROOT_DIR "F:/atomicDEX-Desktop/")
+set(PROJECT_ROOT_DIR "F:/bitcoinz-dex-desktop/")
 message("Test configuration3: \"${CMAKE_SOURCE_DIR}\"")
 
 message("Test configuration4: \"${PROJECT_ROOT_DIR}\"")
@@ -69,10 +69,10 @@ else()
 	message(STATUS "${DEX_PROJECT_NAME}.7z already exists skipping")
 endif()
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/bin/${DEX_PROJECT_NAME}.7z DESTINATION ${PROJECT_ROOT_DIR}ci_tools_atomic_dex/installer/windows/packages/com.komodoplatform.atomicdex/data)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/bin/${DEX_PROJECT_NAME}.7z DESTINATION ${PROJECT_ROOT_DIR}ci_tools_bitcoinz_dex/installer/windows/packages/com.btcz.bitcoinz-dex/data)
 
 execute_process(COMMAND ${IFW_BINDIR}/binarycreator.exe -c ./config/config.xml -p ./packages/ ${DEX_PROJECT_NAME}_installer.exe
-	WORKING_DIRECTORY ${PROJECT_ROOT_DIR}/ci_tools_atomic_dex/installer/windows
+	WORKING_DIRECTORY ${PROJECT_ROOT_DIR}/ci_tools_bitcoinz_dex/installer/windows
 	ECHO_OUTPUT_VARIABLE
 	ECHO_ERROR_VARIABLE)
-file(COPY ${PROJECT_ROOT_DIR}ci_tools_atomic_dex/installer/windows/${DEX_PROJECT_NAME}_installer.exe DESTINATION ${TARGET_APP_PATH})
+file(COPY ${PROJECT_ROOT_DIR}ci_tools_bitcoinz_dex/installer/windows/${DEX_PROJECT_NAME}_installer.exe DESTINATION ${TARGET_APP_PATH})
