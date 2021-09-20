@@ -6,11 +6,6 @@ BitcoinZ DEX Desktop
 [![gitstars](https://img.shields.io/github/stars/btcz/bitcoinz-dex-desktop?style=social)](https://github.com/btcz/bitcoinz-dex-desktop/stargazers)
 [![twitter](https://img.shields.io/twitter/follow/BTCZOfficial?style=social)](https://twitter.com/BTCZOfficial)
 
-## CI/CD status
-
-| CI/CD Names | Status |
-|-------------|--------|
-| Windows/Linux/macOS  | [![GitHub All Releases](https://img.shields.io/github/workflow/status/btcz/bitcoinz-dex-desktop/bitcoinz-dex-desktop%20CI?style=for-the-badge)](https://github.com/btcz/bitcoinz-dex-desktop/actions) |
 
 ## Useful links
 
