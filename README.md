@@ -59,6 +59,7 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 - CMake 3.18 minimum [CMake Download](https://cmake.org/download)
 - Python
 
+
 ### Install Requirements
 #### Install Qt Windows
 ```
@@ -248,3 +249,7 @@ ninja install
 
 ## How can I create installer ?
 Comming soon!
+### Prerequisites
+- Qt Installer Framework 4.1
+- 7Zip
+- WIX Toolset
