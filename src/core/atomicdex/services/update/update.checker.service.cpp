@@ -32,7 +32,7 @@
 
 namespace
 {
-    constexpr const char* g_komodolive_endpoint = "https://komodo.live/adexproversion";
+    constexpr const char* g_komodolive_endpoint = "https://getbtcz.com/getlatestversion.php";
     t_http_client_ptr     g_komodolive_client{std::make_unique<t_http_client>(FROM_STD_STR(g_komodolive_endpoint))};
 
     pplx::task<web::http::http_response>
