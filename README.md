@@ -1,4 +1,4 @@
-# [![AtomicDEX](http://www.weby.si/test/bitcoinz/dex-logo.png)](https://atomicdex.io) BitcoinZ DEX
+# [![BitcoinZDEX](http://www.weby.si/test/bitcoinz/dex-logo.png)](https://getbtcz.com) BitcoinZ DEX
 BitcoinZ DEX Desktop
 
 [![Discord](https://img.shields.io/discord/302123079818149888.svg?style=for-the-badge&logo=discord)](https://discord.gg/K59mxyf)
