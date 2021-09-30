@@ -141,7 +141,7 @@ namespace atomic_dex
                 t_float_50  fiat_price     = safe_float(this->sourceModel()->data(idx, orderbook_model::PriceFiatRole).toString().toStdString());
                 std::string ticker         = this->sourceModel()->data(idx, orderbook_model::CoinRole).toString().toStdString();
                 const auto& gecko_provider = this->m_system_mgr.get_system<coingecko_provider>();
-                t_float_50  limit("10000");
+                t_float_50  limit("1");
 
                 if (rates > 100 || fiat_price <= 0 || safe_float(gecko_provider.get_total_volume(ticker)) < limit)
                 {
